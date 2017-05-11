@@ -1,6 +1,6 @@
 package webapp;
 
-public class userValidationService {
+public class LoginService {
 
 	public boolean isValid(String user, String password)
 	{

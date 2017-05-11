@@ -1,4 +1,4 @@
-package webapp;
+package webapp.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,10 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import webapp.LoginService;
+import webapp.todo.TodoService;
+
 @WebServlet(urlPatterns="/login.do")
 public class LoginServlet extends HttpServlet{
 	
-	private userValidationService validate = new userValidationService();
+	private LoginService validate = new LoginService();
+	private TodoService todoService = new TodoService();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,24 +26,23 @@ public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-
+		
 		
 		if (validate.isValid(request.getParameter("username"), request.getParameter("password")))
 		{
-			request.setAttribute("WelcomeName", request.getParameter("username"));
-			request.setAttribute("WelcomePassword", request.getParameter("password"));
-			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
+		//	request.setAttribute("WelcomeName", request.getParameter("username"));
+		//	request.setAttribute("WelcomePassword", request.getParameter("password"));
+		//	request.setAttribute("todos",  todoService.retrieveTodos());
+		//	request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
+			response.sendRedirect("/todo.do");
 		}	
 		else
 		{
-			request.setAttribute("loginError", "Login Unsuccessful");
+			request.setAttribute("loginError", "Login Unsuccessful, invalid credentials");
 
 			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 		}
-		
 
-		
-		//1:18
 	}
 
 }
