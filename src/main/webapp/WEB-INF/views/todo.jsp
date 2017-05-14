@@ -16,5 +16,10 @@
 		<li>${todo.name}</li>	
 	</c:forEach>
 </ol>
+
+<form action="/todo.do" method="post">
+	<input type="text" name="newtodo"/> <input type="submit" value="Add"/>
+	
+</form>
 </body>
 </html>
