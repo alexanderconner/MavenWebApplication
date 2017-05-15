@@ -12,27 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import webapp.LoginService;
 import webapp.todo.TodoService;
 
-@WebServlet(urlPatterns="/todo.do")
-public class TodoServlet extends HttpServlet{
+@WebServlet(urlPatterns="/delete-todo.do")
+public class DeleteTodoServlet extends HttpServlet{
 	
 	private LoginService validate = new LoginService();
 	private TodoService todoService = new TodoService();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("todos",  todoService.retrieveTodos());
-		request.getRequestDispatcher("/WEB-INF/views/todo.jsp").forward(request, response);
+		//Delete the todo object from the delete jsp link in the database
+		
+		//We should try to delete based on the id of the todo, not the name.
+		todoService.deleteTodo(new Todo(request.getParameter("deletetodo")));
+		//redirect back to the main todo page. 
+		response.sendRedirect("/todo.do");
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String newTodo = request.getParameter("newtodo");
-		//We would actually store this in a database:
-		todoService.addTodo(new Todo(newTodo));
-		//Redirect to todo.do to cause a Get Request to be fired. This is done after the new todo is grabbed by the 
-		//newtodo input from the jsp and added to the todoService.
-		response.sendRedirect("/todo.do");
 
 	}
 
