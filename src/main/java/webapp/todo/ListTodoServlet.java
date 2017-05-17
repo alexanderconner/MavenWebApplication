@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import webapp.LoginService;
 import webapp.todo.TodoService;
 
-@WebServlet(urlPatterns="/todo.do")
-public class TodoServlet extends HttpServlet{
+@WebServlet(urlPatterns="/list-todo.do")
+public class ListTodoServlet extends HttpServlet{
 	
 	private LoginService validate = new LoginService();
 	private TodoService todoService = new TodoService();
@@ -24,16 +24,4 @@ public class TodoServlet extends HttpServlet{
 		request.getRequestDispatcher("/WEB-INF/views/todo.jsp").forward(request, response);
 	}
 	
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String newTodo = request.getParameter("newtodo");
-		//We would actually store this in a database:
-		todoService.addTodo(new Todo(newTodo));
-		//Redirect to todo.do to cause a Get Request to be fired. This is done after the new todo is grabbed by the 
-		//newtodo input from the jsp and added to the todoService.
-		response.sendRedirect("/todo.do");
-
-	}
-
 }

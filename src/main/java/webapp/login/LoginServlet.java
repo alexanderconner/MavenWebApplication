@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 			// in Request scope.
 
 			request.getSession().setAttribute("name", request.getParameter("username"));
-			response.sendRedirect("/todo.do");
+			response.sendRedirect("/list-todo.do");
 		} else {
 			request.setAttribute("loginError", "Login Unsuccessful, invalid credentials");
 
