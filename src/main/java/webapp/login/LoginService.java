@@ -1,4 +1,4 @@
-package webapp;
+package webapp.login;
 
 public class LoginService {
 
