@@ -26,7 +26,7 @@ public class AddTodoServlet extends HttpServlet{
 		todoService.addTodo(new Todo(newTodo));
 		//Redirect to todo.do to cause a Get Request to be fired. This is done after the new todo is grabbed by the 
 		//newtodo input from the jsp and added to the todoService.
-		response.sendRedirect("/list-todo.do");
+		response.sendRedirect("/list-todos.do");
 
 	}
 
