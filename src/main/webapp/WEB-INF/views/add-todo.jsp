@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
 	<nav class="navbar navbar-default">
 
 		<a href="/" class="navbar-brand">Brand</a>
@@ -36,20 +35,15 @@
 	</nav>
 
 	<div class="container">
-		<H1>Welcome!</H1>
+		<H1>Your new ToDo item:</H1>
 		
-		<ol>
-			<c:forEach items="${todos}" var="todo">
-				<li>${todo.name} &nbsp; <a href="/delete-todo.do?deletetodo=${todo.name}">Delete</a></li>
-			
-			</c:forEach>
-		</ol>
+		<form action="/add-todo.do" method="post">
+			Add New Todo: <input name="newtodo" type="text" /> <input name="addtodo" type="submit">
+		</form>
 		
 		<p>
 			<font color="red">${errorMessage}</font>
 		</p>
-		<a href="/add-todo.do">Add new ToDo Item</a>
-		
 	</div>
 
 	<footer class="footer">
