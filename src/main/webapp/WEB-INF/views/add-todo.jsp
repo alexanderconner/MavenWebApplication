@@ -38,9 +38,13 @@
 		<H1>Your new ToDo item:</H1>
 		
 		<form action="/add-todo.do" method="post">
-			Description: <input name="newtodo" type="text" /><br/>
-			Category: <input name="category" type="text" />  <br/>
-			<input name="addtodo" type="submit"> <br/>
+			<fieldset class="form-group">
+				<label>Description:</label> <input name="newtodo" type="text" class="form-control"/> 
+			</fieldset>
+			<fieldset class="form-group">
+				<label>Category:</label> <input name="category" type="text" class="form-control"/> 
+			</fieldset><br/>
+			<input name="addtodo" type="submit" class="btn btn-success"> <br/>
 		</form>
 		
 		<p>
