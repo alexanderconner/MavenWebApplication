@@ -38,7 +38,9 @@
 		<H1>Your new ToDo item:</H1>
 		
 		<form action="/add-todo.do" method="post">
-			Add New Todo: <input name="newtodo" type="text" /> <input name="addtodo" type="submit">
+			Description: <input name="newtodo" type="text" /><br/>
+			Category: <input name="category" type="text" />  <br/>
+			<input name="addtodo" type="submit"> <br/>
 		</form>
 		
 		<p>

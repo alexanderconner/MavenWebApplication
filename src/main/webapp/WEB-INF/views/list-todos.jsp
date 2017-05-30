@@ -40,7 +40,7 @@
 		
 		<ol>
 			<c:forEach items="${todos}" var="todo">
-				<li>${todo.name} &nbsp; <a href="/delete-todo.do?deletetodo=${todo.name}">Delete</a></li>
+				<li>${todo.name} &nbsp; Type: ${todo.category} &nbsp; <a href="/delete-todo.do?deletetodo=${todo.name}&category=${todo.category}">Delete</a></li>
 			
 			</c:forEach>
 		</ol>
