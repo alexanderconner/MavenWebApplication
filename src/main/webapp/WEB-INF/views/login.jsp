@@ -5,14 +5,19 @@
 	<p>
 		<font color="red"> ${loginError}</font>
 	</p>
-	<form action="/login.do" method="post">
-		Enter your username: <input type="text" name="username" /> <br>
-		Enter your password: <input type="text" name="password" /> <br> <input
-			type="submit" name="submit" value="Submit" /> <br>
+	
+	<div class="card card-container">
+	<form action="/login.do" method="post" class="form-signin">
+		<input type="text" name="username" class="form-control" placeholder="Email address" required autofocus/> <br>
+		<input type="text" name="password" class="form-control" placeholder="Password" required /> <br> 
+		<button
+			type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary btn-block btn-signin" 
+			>Sign In
+		</button> <br>
 		<small> <a href="/resetpassword"><i>Forgot your
 					password?</i></a>
 		</small>
-
+		</div><!--card-container  -->
 	</form>
 
 </div>
