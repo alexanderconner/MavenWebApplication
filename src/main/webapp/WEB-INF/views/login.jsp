@@ -9,7 +9,7 @@
 	<div class="card card-container">
 	<form action="/login.do" method="post" class="form-signin">
 		<input type="text" name="username" class="form-control" placeholder="Email address" required autofocus/> <br>
-		<input type="text" name="password" class="form-control" placeholder="Password" required /> <br> 
+		<input type="password" name="password" class="form-control" placeholder="Password" required /> <br> 
 		<button
 			type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary btn-block btn-signin" 
 			>Sign In
