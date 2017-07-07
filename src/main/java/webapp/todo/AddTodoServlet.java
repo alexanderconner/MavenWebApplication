@@ -1,6 +1,7 @@
 package webapp.todo;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +30,8 @@ public class AddTodoServlet extends HttpServlet {
     String newTodo = request.getParameter("newtodo");
     String category = request.getParameter("category");
     // We would actually store this in a database:
-    todoService.addTodo(new Todo(newTodo, category));
+    todoService.addTodo("Alex", "Learn Web Application Development", "Name", "Study", new Date(),
+        false);
     // Redirect to todo.do to cause a Get Request to be fired. This is done after the new todo is
     // grabbed by the
     // newtodo input from the jsp and added to the todoService.

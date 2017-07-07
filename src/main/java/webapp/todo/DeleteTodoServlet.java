@@ -22,8 +22,7 @@ public class DeleteTodoServlet extends HttpServlet {
     // Delete the todo object from the delete jsp link in the database
 
     // We should try to delete based on the id of the todo, not the name.
-    todoService
-        .deleteTodo(new Todo(request.getParameter("deletetodo"), request.getParameter("category")));
+    todoService.deleteTodo(1);
     // redirect back to the main todo page.
     response.sendRedirect("/list-todos.do");
   }

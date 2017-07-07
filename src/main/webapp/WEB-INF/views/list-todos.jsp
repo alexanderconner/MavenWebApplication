@@ -8,15 +8,23 @@
 		<table class="table table-striped">
 			<caption>Your todo list is:</caption>
 			<thead>
+			<th>Number</th>
+			<th>User</th>
 			<th>Description</th>
 			<th>Category</th>
-			<th>Actions</th>
+			<th>Target Date</th>
+			<th>Is Done</th>
 			</thead>
 			<tbody>
 				<c:forEach items="${todos}" var="todo">
 					<tr>
+						<td>${todo.id}</td>
+						<td>${todo.user}</td>
+						<td>${todo.desc}</td>
 						<td>${todo.name}</td>
 						<td>${todo.category}</td>
+						<td>${todo.targetDate}</td>
+						
 						<td><a class="btn btn-danger" href="/delete-todo.do?deletetodo=${todo.name}&category=${todo.category}">Delete</a></td>
 					</tr>
 					
