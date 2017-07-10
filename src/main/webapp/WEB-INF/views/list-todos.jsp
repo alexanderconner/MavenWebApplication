@@ -1,7 +1,7 @@
 <%@ include file="../common/header.jspf"%>
 
 	<div class="container">
-		<H1>Welcome!</H1>
+		<H1>Welcome, ${username}! </H1>
 		
 		
 		
@@ -35,7 +35,7 @@
 		<p>
 			<font color="red">${errorMessage}</font>
 		</p>
-		<a class ="btn btn-success" href="/add-todo.do">Add new ToDo Item</a>
+		<a class ="btn btn-success" href="/add-todo">Add new ToDo Item</a>
 		
 	</div>
 

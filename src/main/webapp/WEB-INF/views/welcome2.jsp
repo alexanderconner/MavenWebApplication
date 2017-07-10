@@ -9,7 +9,8 @@
 	<div class="card card-container">
 	<h1>WELCOME 2</h1>
 <p>you are ${username} and password is ${password}. </p>
-
+</br>
+<p>Now you can <a href="list-todos">manage your todos</a></p>
 </div>
 
 <%@ include file="../common/footer.jspf"%>
