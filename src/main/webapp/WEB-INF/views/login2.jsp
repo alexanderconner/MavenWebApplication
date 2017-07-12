@@ -7,9 +7,9 @@
 	</p>
 	
 	<div class="card card-container">
-	<h1>THIS IS LOGIN 2</h1>
+	<h1>Welcome</h1>
 	<form action="/login2" method="post" class="form-signin">
-		<input type="text" name="username" class="form-control" placeholder="Email address" required autofocus/> <br>
+		<input type="text" name="username" class="form-control" placeholder="Username" required autofocus/> <br>
 		<input type="password" name="password" class="form-control" placeholder="Password" required /> <br> 
 		<button
 			type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary btn-block btn-signin" 

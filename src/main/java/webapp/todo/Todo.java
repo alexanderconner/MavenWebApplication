@@ -2,10 +2,14 @@ package webapp.todo;
 
 import java.util.Date;
 
+import javax.validation.constraints.Size;
+
 public class Todo {
 
   private int id;
   private String user;
+
+  @Size(min = 6, message = "Enter at least 6 characters.")
   private String desc;
   private String name;
   private String category;
@@ -100,6 +104,18 @@ public class Todo {
     super();
     this.name = name;
     this.category = category;
+  }
+
+  public Todo() {
+    // TODO Auto-generated constructor stub
+    super();
+    this.id = 0;
+    this.user = "defaultUser";
+    this.desc = "defaultDesc";
+    this.name = "defaultName";
+    this.category = "defaultCategory";
+    this.targetDate = new Date();
+    this.isDone = false;
   }
 
   public String getName() {
