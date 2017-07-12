@@ -42,7 +42,7 @@ public class TodoController {
       return "todo";
     }
 
-    service.addTodo("Alex", todo.getDesc(), "Name test", todo.getCategory(), new Date(), false);
+    service.addTodo(todo.getUser(), todo.getDesc(), new Date(), false);
     model.clear();
     return "redirect:list-todos";
   }
@@ -55,13 +55,14 @@ public class TodoController {
   }
 
   @RequestMapping(value = "/update-todo", method = RequestMethod.POST)
-  public String updateTodo(@Valid Todo todo, BindingResult result) {
+  public String updateTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
     if (result.hasErrors()) {
       // If there is a validation error, return user to todo page.
       return "todo";
     }
     todo.setUser("Alex");
     service.updateTodo(todo);
+    model.clear();
     return "redirect:list-todos";
   }
 

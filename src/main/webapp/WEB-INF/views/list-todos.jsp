@@ -11,9 +11,7 @@
 			<th>Number</th>
 			<th>User</th>
 			<th>Description</th>
-			<th>Category</th>
 			<th>Target Date</th>
-			<th>Is Done</th>
 			</thead>
 			<tbody>
 				<c:forEach items="${todos}" var="todo">
@@ -21,8 +19,6 @@
 						<td>${todo.id}</td>
 						<td>${todo.user}</td>
 						<td>${todo.desc}</td>
-						<td>${todo.name}</td>
-						<td>${todo.category}</td>
 						<td>${todo.targetDate}</td>
 						
 						<td><a href="/update-todo?id=${todo.id}" class="btn btn-success" >Update</a></td>

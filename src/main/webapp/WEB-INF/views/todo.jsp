@@ -15,9 +15,7 @@ Added todo
 				<form:input path="desc" type="text" class="form-control" required="required"/> 
 				<form:errors path="desc" cssClass="text-warning" />
 			</fieldset>
-			<fieldset class="form-group">
-				<label>Category:</label> <input name="category" type="text" class="form-control" required="required"/> 
-			</fieldset><br/>
+			<br/>
 			<input type= "submit" value="Submit" class="btn btn-success"/> <br/>
 			
 		</form:form>

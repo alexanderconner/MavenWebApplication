@@ -13,13 +13,10 @@ public class TodoService {
   private static List<Todo> todos = new ArrayList<Todo>();
 
   static {
-    todos.add(new Todo(1, "Alex", "Learn Web Application Development", "Name", "Study", new Date(),
-        false));
-    todos.add(new Todo(2, "Alex", "Learn Spring MVC", "Name", "Study", new Date(), false));
-    todos
-        .add(new Todo(3, "Alex", "Learn Spring Rest Services", "Name", "Study", new Date(), false));
-    todos.add(new Todo(4, "Alex", "Rewrite code with real Database.", "Name", "Study", new Date(),
-        false));
+    todos.add(new Todo(1, "Alex", "Learn Web Application Development", new Date(), false));
+    todos.add(new Todo(2, "Alex", "Learn Spring MVC", new Date(), false));
+    todos.add(new Todo(3, "Alex", "Learn Spring Rest Services", new Date(), false));
+    todos.add(new Todo(4, "Alex", "Rewrite code with real Database.", new Date(), false));
   }
 
   private int todoCount = 4;
@@ -46,9 +43,8 @@ public class TodoService {
     todos.add(todo);
   }
 
-  public void addTodo(String user, String desc, String name, String category, Date targetDate,
-      boolean isDone) {
-    todos.add(new Todo(++todoCount, user, desc, name, category, targetDate, isDone));
+  public void addTodo(String user, String desc, Date targetDate, boolean isDone) {
+    todos.add(new Todo(++todoCount, user, desc, targetDate, isDone));
   }
 
   public void deleteTodo(int id) {

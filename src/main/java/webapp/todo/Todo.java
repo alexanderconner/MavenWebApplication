@@ -11,21 +11,27 @@ public class Todo {
 
   @Size(min = 6, message = "Enter at least 6 characters.")
   private String desc;
-  private String name;
-  private String category;
   private Date targetDate;
   private boolean isDone;
 
 
+  /**
+   * Default constructor, no arguments.
+   */
+  public Todo() {
+    super();
+    this.id = 0;
+    this.user = "Alex";
+    this.desc = "defaultDesc";
+    this.targetDate = new Date();
+    this.isDone = false;
+  }
 
-  public Todo(int id, String user, String desc, String name, String category, Date targetDate,
-      boolean isDone) {
+  public Todo(int id, String user, String desc, Date targetDate, boolean isDone) {
     super();
     this.id = id;
     this.user = user;
     this.desc = desc;
-    this.name = name;
-    this.category = category;
     this.targetDate = targetDate;
     this.isDone = isDone;
   }
@@ -100,40 +106,6 @@ public class Todo {
     this.isDone = isDone;
   }
 
-  public Todo(String name, String category) {
-    super();
-    this.name = name;
-    this.category = category;
-  }
-
-  public Todo() {
-    // TODO Auto-generated constructor stub
-    super();
-    this.id = 0;
-    this.user = "defaultUser";
-    this.desc = "defaultDesc";
-    this.name = "defaultName";
-    this.category = "defaultCategory";
-    this.targetDate = new Date();
-    this.isDone = false;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public String getCategory() {
-    return category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
 
   /*
@@ -143,9 +115,8 @@ public class Todo {
    */
   @Override
   public String toString() {
-    return String.format(
-        "Todo [id=%s, user=%s, desc=%s, name=%s, category=%s, targetDate=%s, isDone=%s]", id, user,
-        desc, name, category, targetDate, isDone);
+    return String.format("Todo [id=%s, user=%s, desc=%s, targetDate=%s, isDone=%s]", id, user, desc,
+        targetDate, isDone);
   }
 
   /*
