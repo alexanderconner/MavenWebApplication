@@ -8,6 +8,8 @@ Added todo
 
 		<form:form action="/add-todo" method="post" commandName="todo">
 		
+			<form:hidden path="id"/>
+			
 			<fieldset class="form-group">
 				<form:label path="desc">Description:</form:label> 
 				<form:input path="desc" type="text" class="form-control" required="required"/> 
@@ -16,7 +18,7 @@ Added todo
 			<fieldset class="form-group">
 				<label>Category:</label> <input name="category" type="text" class="form-control" required="required"/> 
 			</fieldset><br/>
-			<input type= "submit" value="add" class="btn btn-success"/> <br/>
+			<input type= "submit" value="Submit" class="btn btn-success"/> <br/>
 			
 		</form:form>
 
