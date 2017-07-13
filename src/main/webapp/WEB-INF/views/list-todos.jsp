@@ -1,4 +1,5 @@
 <%@ include file="../common/header.jspf"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 	<div class="container">
 		<H1>Welcome, ${username}! </H1>
@@ -19,7 +20,7 @@
 						<td>${todo.id}</td>
 						<td>${todo.user}</td>
 						<td>${todo.desc}</td>
-						<td>${todo.targetDate}</td>
+						<td><fmt:formatDate pattern="dd/MM/yyyy" value="${todo.targetDate}" /></td>
 						
 						<td><a href="/update-todo?id=${todo.id}" class="btn btn-success" >Update</a></td>
 						<td><a href="/delete-todo?id=${todo.id}" class="btn btn-danger" >Delete</a></td>

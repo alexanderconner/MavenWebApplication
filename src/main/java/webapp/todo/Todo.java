@@ -14,7 +14,6 @@ public class Todo {
   private Date targetDate;
   private boolean isDone;
 
-
   /**
    * Default constructor, no arguments.
    */
@@ -105,8 +104,6 @@ public class Todo {
   public void setDone(boolean isDone) {
     this.isDone = isDone;
   }
-
-
 
   /*
    * (non-Javadoc)
