@@ -7,7 +7,7 @@
 		
 		
 		<table class="table table-striped">
-			<caption>Your todo list is:</caption>
+			<caption><spring:message code="todo.caption"/></caption>
 			<thead>
 			<th>Number</th>
 			<th>User</th>

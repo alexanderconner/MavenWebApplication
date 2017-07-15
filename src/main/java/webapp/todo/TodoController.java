@@ -7,6 +7,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -15,10 +17,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("username")
 public class TodoController {
 
   // Set login service with Autowiring
@@ -34,9 +34,23 @@ public class TodoController {
   @RequestMapping(value = "/list-todos", method = RequestMethod.GET)
   public String listTodos(ModelMap model) {
     // This is where we pull todos for a specific user. Will hardcode now but must improve later.
-    model.addAttribute("todos", service.retrieveTodos("Alex"));
+    model.addAttribute("todos", service.retrieveTodos(retrieveLoggedinUserName()));
+
     return "list-todos";
   }
+
+  // this gets the username from the login screen
+  private String retrieveLoggedinUserName() {
+    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+    if (principal instanceof UserDetails)
+      return ((UserDetails) principal).getUsername();
+    System.out
+        .println("*********************************************************************************"
+            + principal.toString());
+    return principal.toString();
+  }
+
 
   @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
   public String showTodoPage(ModelMap model) {
@@ -62,13 +76,14 @@ public class TodoController {
     return "todo";
   }
 
+  // TODO: fix error handling for category update
   @RequestMapping(value = "/update-todo", method = RequestMethod.POST)
   public String updateTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
     if (result.hasErrors()) {
       // If there is a validation error, return user to todo page.
       return "todo";
     }
-    todo.setUser("Alex");
+    todo.setUser(retrieveLoggedinUserName());
     service.updateTodo(todo);
     model.clear();
     return "redirect:list-todos";

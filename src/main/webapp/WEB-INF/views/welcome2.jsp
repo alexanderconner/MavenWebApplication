@@ -7,8 +7,8 @@
 	</p>
 	
 	<div class="card card-container">
-	<h1>WELCOME 2</h1>
-<p>you are ${username} and password is ${password}. </p>
+	<h1><spring:message code="welcome.caption"/></caption></h1>
+<p>you are ${user} and password is ${password}. </p>
 </br>
 <p>Now you can <a href="list-todos">manage your todos</a></p>
 </div>
